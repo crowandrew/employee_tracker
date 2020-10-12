@@ -28,50 +28,29 @@ function promptUser(){
         name:"choice",
         message:"What would like to do?",
         type:"list",
-        choices:["View All Employees", "View All Employees By Department", "View All Employees By Manager", "Add Employee", "Remove Employee","Update Employee Role","Update Employee Manager","View All Roles","Add Role","Remove Role","View All Departments","Add Department","Remove Department","View Utilized Budget By Department","Quit"]
-    },
-    {
-        name:'title',
-        message:"what is the title?",
-        type:"input",
-        when:function(answers){
-            if(answers.choice==="add custom song"){
-                return true
-            } else {
-                return false
-            }
-        }
-    },
-    {
-        name:'artist',
-        message:"which artist?",
-        type:"input",
-        when:function(answers){
-            if(answers.choice==="add custom song"){
-                return true
-            } else {
-                return false
-            }
-        }
-    },
-    {
-        name:'genre',
-        message:"which genre?",
-        type:"input",
-        when:function(answers){
-            if(answers.choice==="query by genre" ||answers.choice==="add custom song"){
-                return true
-            } else {
-                return false
-            }
-        }
+        choices:["View All Employees", "View All Employees By Department", "View All Employees By Manager", "Add Employee", "Remove Employee","Update Employee Role","Update Employee Manager","View All Roles","View All Roles by Department","Add Role","Remove Role","Update Role Department","Update Role Salary","View All Departments","Add Department","Remove Department","View Utilized Budget By Department","Quit"]
     }
 ]).then(function(answers){
-        if(answers.choice==="See all songs"){
-            readDb();
+        switch (answers.choice) {
+            case "View All Employees":
+                console.log("viewAllEmployees");
+                break;
+            case "View All Employees By Department":
+                console.log("viewAllEmployeesByDepartment");
+                break;
+            case "View All Employees By Manager":
+                console.log("viewAllEmployeesByManager");
+                break;
+            default:
+                break;
+        }
+
+
+        if(answers.choice==="View All Employees"){
+            viewAllEmployee();
         }
         else if(answers.choice==="query by genre"){
-          selectByGenre(answers.genre)
+            (answers.genre)
         }
         else if(answers.choice==="Hear Baby Shark"){
            insertBabyShark();
