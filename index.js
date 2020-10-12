@@ -1,6 +1,7 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
 
+
 const connection = mysql.createConnection({
   host: "localhost",
 
@@ -27,7 +28,7 @@ function promptUser(){
         name:"choice",
         message:"What would like to do?",
         type:"list",
-        choices:["See all songs", "Hear Baby Shark", "add custom song", "query by genre", "Quit"]
+        choices:["View All Employees", "View All Employees By Department", "View All Employees By Manager", "Add Employee", "Remove Employee","Update Employee Role","Update Employee Manager","View All Roles","Add Role","Remove Role","View All Departments","Add Department","Remove Department","View Utilized Budget By Department","Quit"]
     },
     {
         name:'title',
