@@ -1,0 +1,26 @@
+{
+  "name": "employee_tracker",
+  "version": "1.0.0",
+  "description": "CMS for managing a company's employees",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crowandrew/employee_tracker.git"
+  },
+  "keywords": [],
+  "author": "Andrew Crow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crowandrew/employee_tracker/issues"
+  },
+  "homepage": "https://github.com/crowandrew/employee_tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1",
+    "node": "^14.13.1"
+  }
+}
