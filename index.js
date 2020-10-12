@@ -3,63 +3,109 @@ const inquirer = require("inquirer");
 
 
 const connection = mysql.createConnection({
-  host: "localhost",
+    host: "localhost",
 
-  // Your port; if not 3306
-  port: 3306,
+    // Your port; if not 3306
+    port: 3306,
 
-  // Your username
-  user: "root",
+    // Your username
+    user: "root",
 
-  // Your password
-  password: "password",
-  database: "employee_tracker_db"
+    // Your password
+    password: "password",
+    database: "employee_tracker_db"
 });
 
 connection.connect(function (err) {
-  if (err) throw err;
-  console.log("connected as id " + connection.threadId);
-  promptUser();
+    if (err) throw err;
+    console.log("connected as id " + connection.threadId);
+    promptUser();
 });
 
-function promptUser(){
+function promptUser() {
     inquirer.prompt([
         {
-        name:"choice",
-        message:"What would like to do?",
-        type:"list",
-        choices:["View All Employees", "View All Employees By Department", "View All Employees By Manager", "Add Employee", "Remove Employee","Update Employee Role","Update Employee Manager","View All Roles","View All Roles by Department","Add Role","Remove Role","Update Role Department","Update Role Salary","View All Departments","Add Department","Remove Department","View Utilized Budget By Department","Quit"]
-    }
-]).then(function(answers){
+            name: "choice",
+            message: "What would like to do?",
+            type: "list",
+            choices: ["View All Employees", "View All Employees By Department", "View All Employees By Manager", "Add Employee", "Remove Employee", "Update Employee Role", "Update Employee Manager", "View All Roles", "View All Roles by Department", "Add Role", "Remove Role", "Update Role Department", "Update Role Salary", "View All Departments", "Add Department", "Remove Department", "View Utilized Budget By Department", "Quit"]
+        }
+    ]).then(function (answers) {
         switch (answers.choice) {
             case "View All Employees":
                 console.log("viewAllEmployees");
+                promptUser();
                 break;
             case "View All Employees By Department":
                 console.log("viewAllEmployeesByDepartment");
+                promptUser();
                 break;
             case "View All Employees By Manager":
                 console.log("viewAllEmployeesByManager");
+                promptUser();
+                break;
+                case "Add Employee":
+                console.log("addEmployee");
+                promptUser();
+                break;
+            case "Remove Employee":
+                console.log("removeEmployee");
+                promptUser();
+                break;
+            case "Update Employee Role":
+                console.log("updateEmployeeRole");
+                promptUser();
+                break;
+            case "Update Employee Manager":
+                console.log("updateEmployeeManager");
+                promptUser();
+                break;
+            case "View All Roles":
+                console.log("viewAllRoles");
+                promptUser();
+                break;
+            case "View All Roles by Department":
+                console.log("viewAllRolesByDepartment");
+                promptUser();
+                break;
+            case "Add Role":
+                console.log("addRole");
+                promptUser();
+                break;
+            case "Remove Role":
+                console.log("removeRole");
+                promptUser();
+                break;
+            case "Update Role Department":
+                console.log("updateRoleDepartment");
+                promptUser();
+                break;
+            case "Update Role Salary":
+                console.log("updateRoleSalary");
+                promptUser();
+                break;
+            case "View All Departments":
+                console.log("viewAllDepartments");
+                promptUser();
+                break;
+            case "Add Department":
+                console.log("addDepartment");
+                promptUser();
+                break;
+            case "Remove Department":
+                console.log("removeDepartment");
+                promptUser();
+                break;
+            case "View Utilized Budget By Department":
+                console.log("viewUtilizedBudgetByDepartment");
+                promptUser();
+                break;
+            case "Quit":
+                connection.end();
                 break;
             default:
+                promptUser();
                 break;
-        }
-
-
-        if(answers.choice==="View All Employees"){
-            viewAllEmployee();
-        }
-        else if(answers.choice==="query by genre"){
-            (answers.genre)
-        }
-        else if(answers.choice==="Hear Baby Shark"){
-           insertBabyShark();
-        }
-        else if(answers.choice==="add custom song"){
-            addCustomSong(answers.title,answers.artist,answers.genre);
-        }
-        else if(answers.choice==="Quit"){
-            connection.end()
         }
     })
 }
