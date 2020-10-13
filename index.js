@@ -15,6 +15,7 @@ const updateRoleDepartment = require("./lib/updateRoleDepartment");
 const updateRoleSalary = require("./lib/updateRoleSalary");
 const viewAllDepartments = require("./lib/viewAllDepartments");
 const addDepartment = require("./lib/addDepartment");
+const removeDepartment = require("./lib/removeDepartment");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -86,11 +87,10 @@ function promptUser() {
                 addDepartment(promptUser);
                 break;
             case "Remove Department":
-                console.log("removeDepartment");
-                promptUser();
+                removeDepartment(promptUser);
                 break;
             case "View Utilized Budget By Department":
-                console.log("viewUtilizedBudgetByDepartment");
+                viewUtilizedBudgetByDepartment();
                 promptUser();
                 break;
             case "Quit":
