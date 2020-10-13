@@ -9,6 +9,7 @@ const updateEmployeeRole = require("./lib/updateEmployeeRole");
 const updateEmployeeManager = require("./lib/updateEmployeeManager");
 const viewAllRoles = require("./lib/viewAllRoles");
 const viewAllRolesByDepartment = require("./lib/viewAllRolesByDepartment");
+const addRole = require("./lib/addRole");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -62,8 +63,7 @@ function promptUser() {
                 viewAllRolesByDepartment(promptUser);
                 break;
             case "Add Role":
-                console.log("addRole");
-                promptUser();
+                addRole(promptUser);
                 break;
             case "Remove Role":
                 console.log("removeRole");
