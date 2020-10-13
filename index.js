@@ -10,6 +10,7 @@ const updateEmployeeManager = require("./lib/updateEmployeeManager");
 const viewAllRoles = require("./lib/viewAllRoles");
 const viewAllRolesByDepartment = require("./lib/viewAllRolesByDepartment");
 const addRole = require("./lib/addRole");
+const removeRole = require("./lib/removeRole")
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -66,8 +67,7 @@ function promptUser() {
                 addRole(promptUser);
                 break;
             case "Remove Role":
-                console.log("removeRole");
-                promptUser();
+                removeRole(promptUser);
                 break;
             case "Update Role Department":
                 console.log("updateRoleDepartment");
@@ -95,7 +95,7 @@ function promptUser() {
                 break;
             case "Quit":
                 connection.end();
-                break;
+                return;
             default:
                 promptUser();
                 break;
