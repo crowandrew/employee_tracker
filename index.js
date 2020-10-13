@@ -1,5 +1,9 @@
-const mysql = require("mysql");
+// Dependencies
+// ===========================================================
 const inquirer = require("inquirer");
+
+// Javascript library connections
+// ===========================================================
 const viewAllEmployees = require("./lib/viewAllEmployees");
 const viewAllEmployeesByDepartment = require("./lib/viewAllEmployeesByDepartment");
 const viewAllEmployeesByManager = require("./lib/viewAllEmployeesByManager");
@@ -18,19 +22,8 @@ const addDepartment = require("./lib/addDepartment");
 const removeDepartment = require("./lib/removeDepartment");
 const viewUtilizedBudgetByDepartment = require("./lib/viewUtilizedBudgetByDepartment");
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "password",
-    database: "employee_tracker_db"
-});
-
-connection.connect(function (err) {
-    if (err) throw err;
-    promptUser();
-});
-
+// Main prompt menu you find out what the user wants to do
+// ===========================================================
 function promptUser() {
     inquirer.prompt([
         {
@@ -102,4 +95,6 @@ function promptUser() {
     })
 }
 
-module.exports = promptUser;
+// Starts the program
+// ===========================================================
+promptUser()
