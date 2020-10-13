@@ -12,6 +12,7 @@ const viewAllRolesByDepartment = require("./lib/viewAllRolesByDepartment");
 const addRole = require("./lib/addRole");
 const removeRole = require("./lib/removeRole");
 const updateRoleDepartment = require("./lib/updateRoleDepartment");
+const updateRoleSalary = require("./lib/updateRoleSalary");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -33,7 +34,7 @@ function promptUser() {
             name: "choice",
             message: "What would like to do?",
             type: "rawlist",
-            choices: ["View All Employees", "View All Employees By Department", "View All Employees By Manager", "Add Employee", "Remove Employee", "Update Employee Role", "Update Employee Manager", "View All Roles", "View All Roles by Department", "Add Role", "Remove Role", "Update Role Department", "Update Role Salary", "View All Departments", "Add Department", "Remove Department", "View Utilized Budget By Department", "Quit"]
+            choices: ["Quit",new inquirer.Separator("Employee"),new inquirer.Separator(),"View All Employees", "View All Employees By Department", "View All Employees By Manager", "Add Employee", "Remove Employee", "Update Employee Role", "Update Employee Manager",,new inquirer.Separator("Roles"),new inquirer.Separator(), "View All Roles", "View All Roles by Department", "Add Role", "Remove Role", "Update Role Department", "Update Role Salary",,new inquirer.Separator("Departments"),new inquirer.Separator(), "View All Departments", "Add Department", "Remove Department",new inquirer.Separator("Budgets"),new inquirer.Separator(),"View Utilized Budget By Department"]
         }
     ]).then(function (answers) {
         switch (answers.choice) {
@@ -74,8 +75,7 @@ function promptUser() {
                 updateRoleDepartment(promptUser);
                 break;
             case "Update Role Salary":
-                console.log("updateRoleSalary");
-                promptUser();
+                updateRoleSalary(promptUser);
                 break;
             case "View All Departments":
                 console.log("viewAllDepartments");
