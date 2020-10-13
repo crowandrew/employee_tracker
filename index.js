@@ -14,6 +14,7 @@ const removeRole = require("./lib/removeRole");
 const updateRoleDepartment = require("./lib/updateRoleDepartment");
 const updateRoleSalary = require("./lib/updateRoleSalary");
 const viewAllDepartments = require("./lib/viewAllDepartments");
+const addDepartment = require("./lib/addDepartment");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -82,8 +83,7 @@ function promptUser() {
                 viewAllDepartments(promptUser);
                 break;
             case "Add Department":
-                console.log("addDepartment");
-                promptUser();
+                addDepartment(promptUser);
                 break;
             case "Remove Department":
                 console.log("removeDepartment");
