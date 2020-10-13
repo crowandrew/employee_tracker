@@ -1,6 +1,8 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-
+const viewAllEmployees = require("./lib/viewAllEmployees");
+const viewAllEmployeesByDepartment = require("./lib/viewAllEmployeesByDepartment");
+const viewAllEmployeesByManager = require("./lib/viewAllEmployeesByManager");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -22,27 +24,24 @@ connection.connect(function (err) {
     promptUser();
 });
 
-function promptUser() {
+function promptUser () {
     inquirer.prompt([
         {
             name: "choice",
             message: "What would like to do?",
-            type: "list",
+            type: "rawlist",
             choices: ["View All Employees", "View All Employees By Department", "View All Employees By Manager", "Add Employee", "Remove Employee", "Update Employee Role", "Update Employee Manager", "View All Roles", "View All Roles by Department", "Add Role", "Remove Role", "Update Role Department", "Update Role Salary", "View All Departments", "Add Department", "Remove Department", "View Utilized Budget By Department", "Quit"]
         }
     ]).then(function (answers) {
         switch (answers.choice) {
             case "View All Employees":
-                console.log("viewAllEmployees");
-                promptUser();
+                viewAllEmployees(promptUser);
                 break;
             case "View All Employees By Department":
-                console.log("viewAllEmployeesByDepartment");
-                promptUser();
+                viewAllEmployeesByDepartment(promptUser);
                 break;
             case "View All Employees By Manager":
-                console.log("viewAllEmployeesByManager");
-                promptUser();
+                viewAllEmployeesByManager(promptUser);
                 break;
                 case "Add Employee":
                 console.log("addEmployee");
@@ -109,3 +108,5 @@ function promptUser() {
         }
     })
 }
+
+module.exports = promptUser;
