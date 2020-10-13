@@ -7,17 +7,12 @@ const addEmployee = require("./lib/addEmployee");
 const removeEmployee = require("./lib/removeEmployee");
 const updateEmployeeRole = require("./lib/updateEmployeeRole");
 const updateEmployeeManager = require("./lib/updateEmployeeManager");
+const viewAllRoles = require("./lib/viewAllRoles");
 
 const connection = mysql.createConnection({
     host: "localhost",
-
-    // Your port; if not 3306
     port: 3306,
-
-    // Your username
     user: "root",
-
-    // Your password
     password: "password",
     database: "employee_tracker_db"
 });
@@ -28,7 +23,7 @@ connection.connect(function (err) {
     promptUser();
 });
 
-function promptUser () {
+function promptUser() {
     inquirer.prompt([
         {
             name: "choice",
@@ -47,7 +42,7 @@ function promptUser () {
             case "View All Employees By Manager":
                 viewAllEmployeesByManager(promptUser);
                 break;
-                case "Add Employee":
+            case "Add Employee":
                 addEmployee(promptUser);
                 break;
             case "Remove Employee":
@@ -60,8 +55,7 @@ function promptUser () {
                 updateEmployeeManager(promptUser);
                 break;
             case "View All Roles":
-                console.log("viewAllRoles");
-                promptUser();
+                viewAllRoles(promptUser);
                 break;
             case "View All Roles by Department":
                 console.log("viewAllRolesByDepartment");
