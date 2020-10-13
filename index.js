@@ -4,6 +4,7 @@ const viewAllEmployees = require("./lib/viewAllEmployees");
 const viewAllEmployeesByDepartment = require("./lib/viewAllEmployeesByDepartment");
 const viewAllEmployeesByManager = require("./lib/viewAllEmployeesByManager");
 const addEmployee = require("./lib/addEmployee");
+const removeEmployee = require("./lib/removeEmployee");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -48,8 +49,7 @@ function promptUser () {
                 addEmployee(promptUser);
                 break;
             case "Remove Employee":
-                console.log("removeEmployee");
-                promptUser();
+                removeEmployee(promptUser);
                 break;
             case "Update Employee Role":
                 console.log("updateEmployeeRole");
