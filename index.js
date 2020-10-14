@@ -1,9 +1,4 @@
-// Dependencies
-// ===========================================================
 const inquirer = require("inquirer");
-
-// Javascript library connections
-// ===========================================================
 const viewAllEmployees = require("./lib/viewAllEmployees");
 const viewAllEmployeesByDepartment = require("./lib/viewAllEmployeesByDepartment");
 const viewAllEmployeesByManager = require("./lib/viewAllEmployeesByManager");
@@ -22,8 +17,6 @@ const addDepartment = require("./lib/addDepartment");
 const removeDepartment = require("./lib/removeDepartment");
 const viewUtilizedBudgetByDepartment = require("./lib/viewUtilizedBudgetByDepartment");
 
-// Main prompt menu you find out what the user wants to do
-// ===========================================================
 function promptUser() {
     inquirer.prompt([
         {
@@ -86,7 +79,7 @@ function promptUser() {
                 viewUtilizedBudgetByDepartment(promptUser);
                 break;
             case "Quit":
-                connection.end();
+                // connection.end();
                 process.exit();
             default:
                 promptUser();
@@ -95,6 +88,4 @@ function promptUser() {
     })
 }
 
-// Starts the program
-// ===========================================================
-promptUser()
+promptUser();
