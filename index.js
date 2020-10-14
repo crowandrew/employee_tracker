@@ -1,4 +1,9 @@
+// Dependencies
+// ===========================================================
 const inquirer = require("inquirer");
+
+// Required file connections 
+// ===========================================================
 const viewAllEmployees = require("./lib/viewAllEmployees");
 const viewAllEmployeesByDepartment = require("./lib/viewAllEmployeesByDepartment");
 const viewAllEmployeesByManager = require("./lib/viewAllEmployeesByManager");
@@ -17,6 +22,8 @@ const addDepartment = require("./lib/addDepartment");
 const removeDepartment = require("./lib/removeDepartment");
 const viewUtilizedBudgetByDepartment = require("./lib/viewUtilizedBudgetByDepartment");
 
+// This is the initial prompt tp start the program
+// ===========================================================
 function promptUser() {
     inquirer.prompt([
         {
@@ -88,5 +95,6 @@ function promptUser() {
     })
 }
 
-
+// Calling this function to start the program
+// ===========================================================
 promptUser();
