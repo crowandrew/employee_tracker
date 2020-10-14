@@ -1,5 +1,5 @@
 # Employee Tracker
-  ![GitHub top language](https://img.shields.io/github/languages/top/crowandrew/README_Generator) ![Libraries.io dependency status for GitHub repo](https://img.shields.io/badge/license-MIT_License-yellowgreen) ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/crowandrew/employee_tracker)
+  ![GitHub top language](https://img.shields.io/github/languages/top/crowandrew/README_Generator) ![Libraries.io dependency status for GitHub repo](https://img.shields.io/badge/license-MIT_License-yellowgreen)
   
   ---
 
